@@ -1,0 +1,30 @@
+{
+    "image_process": {
+        "1": {
+            "file_path": "E:\\03.users\\liuhuanlin\\01.data\\cellbin2\\input\\D04167E2\\D04167E2.gem.gz",
+            "tech_type": "Transcriptomics",
+            "chip_detect": false,
+            "quality_control": false,
+            "registration": {
+                "fixed_image": -1,
+                "trackline": true
+            },
+            "tissue_segmentation": false,
+            "cell_segmentation": true,
+            "correct_r": 10,
+            "channel_align": -1
+        }
+    },
+    "molecular_classify": {
+        "0": {
+            "exp_matrix": 1,
+            "cell_mask": [1],
+            "extra_method": ""
+        }
+    },
+    "analysis": {
+        "cluster": true,
+        "annotation": false,
+        "report": true
+    }
+}

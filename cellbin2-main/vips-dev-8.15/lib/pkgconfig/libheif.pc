@@ -1,0 +1,14 @@
+prefix=/data/mxe/usr/x86_64-w64-mingw32.shared.web
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libheif
+Description: HEIF image codec.
+URL: https://github.com/strukturag/libheif
+Version: 1.18.2
+Requires:
+Requires.private: aom libsharpyuv
+Libs: -L${libdir} -lheif
+Libs.private: -lc++
+Cflags: -I${includedir}

@@ -1,0 +1,40 @@
+name: CellBin Main Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Demo test
+      run: |
+        echo $CONDA_PREFIX/bin >> $GITHUB_PATH
+        conda init bash
+        source ~/.bashrc
+        if conda info --envs | grep -q "myenv"; then
+          echo "Environment 'myenv' already exists. Skipping creation."
+        else
+          echo "Environment 'myenv' does not exist. Creating."
+          conda create --name myenv python=3.8 -y
+        fi
+        conda activate myenv
+        which python
+        python -c "print('Hello, World!')"
+        pip install pytest
+        pip install pytest-html
+        pytest test/test_cellbin_pipeline.py --html=/media/Data1/user/dengzhonghan/data/cellbin2/auto_test_report/${GITHUB_SHA}.html --self-contained-html
+        python /media/Data1/user/dengzhonghan/code/email_send/send_email.py \
+        -s 'CellBin Research Group' \
+        -t 'GitHub Auto Test Report' \
+        -r dengzhonghan@genomics.cn \
+        -a /media/Data1/user/dengzhonghan/data/cellbin2/auto_test_report/${GITHUB_SHA}.html \
+        -m 'CellBin report'
