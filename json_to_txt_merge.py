@@ -137,7 +137,7 @@ def process_geojson_files(folder_path, tif_folder_path, output_folder_path):
                 try:
                     image = tifffile.imread(tif_file_path)
                     image = f_ij_16_to_8(image)
-                    image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
+                    # image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
                     image_width, image_height = image.shape[1], image.shape[0]
                 except FileNotFoundError:
                     print(f"未找到对应的tif图像: {tif_file_path}，跳过该.geojson文件的处理。")
@@ -376,12 +376,12 @@ def calculate_deviation_angle(valid_intersections):
 
 if __name__ == '__main__':
     # 指定包含.geojson文件的文件夹路径
-    folder_path = r"C:\Users\zoujialin\Desktop\gold\demo\B04272D4\matrix\2"
+    folder_path = r"C:\Users\zoujialin\Desktop\gold\test\raw_json_label"
     # 指定包含对应的tif图像的文件夹路径
-    tif_folder_path = r"C:\Users\zoujialin\Desktop\gold\demo\B04272D4\matrix\1"
+    tif_folder_path = r"C:\Users\zoujialin\Desktop\gold\test\raw_img"
     # 指定保存新图的目的文件夹路径
-    output_folder_path = r"C:\Users\zoujialin\Desktop\gold\demo\B04272D4\matrix"
-    txt_folder_path = r"C:\Users\zoujialin\Desktop\gold\demo\B04272D4\matrix"
+    output_folder_path = r"C:\Users\zoujialin\Desktop\gold\test\merge"
+    txt_folder_path = r"C:\Users\zoujialin\Desktop\gold\test\txt"
     rectangle_count, non_rectangle_count, non_rectangle_angle_info, non_aligned_rectangle_info, aligned_count, within_5_degrees_count, within_5_to_10_degrees_count, within_10_to_20_degrees_count, within_20_to_30_degrees_count, over_30_degrees_count, within_5_degrees_files, within_5_to_10_degrees_files, within_10_to_20_degrees_files, within_20_to_30_degrees_files, over_30_degrees_files, aligned_rectangle_count = process_geojson_files(folder_path, tif_folder_path, output_folder_path)
     print(f"矩形的数量为: {rectangle_count}")
     print(f"非矩形的数量为: {non_rectangle_count}")
