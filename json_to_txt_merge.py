@@ -311,7 +311,7 @@ def plot_lines_and_intersections(image, valid_interections, output_folder_path, 
         cv2.line(image_cv, (int(start_point[0]), int(start_point[1])), (int(end_point[0]), int(end_point[1])),
                  (0, 255, 0), 1, lineType=cv2.LINE_AA)
 
-    output_file_path = os.path.join(output_folder_path, base_name + '.png')
+    output_file_path = os.path.join(output_folder_path, base_name + '.tif')
     tifffile.imwrite(output_file_path, image_cv)
 
 
@@ -376,12 +376,12 @@ def calculate_deviation_angle(valid_intersections):
 
 if __name__ == '__main__':
     # 指定包含.geojson文件的文件夹路径
-    folder_path = r"C:\Users\zoujialin\Desktop\gold\test\raw_json_label"
+    folder_path = r"C:\Users\zoujialin\Desktop\gold\C03632D2\json"
     # 指定包含对应的tif图像的文件夹路径
-    tif_folder_path = r"C:\Users\zoujialin\Desktop\gold\test\raw_img"
+    tif_folder_path = r"C:\Users\zoujialin\Desktop\gold\C03632D2\image"
     # 指定保存新图的目的文件夹路径
-    output_folder_path = r"C:\Users\zoujialin\Desktop\gold\test\merge"
-    txt_folder_path = r"C:\Users\zoujialin\Desktop\gold\test\txt"
+    output_folder_path = r"C:\Users\zoujialin\Desktop\gold\C03632D2\image_draw"
+    txt_folder_path = r"C:\Users\zoujialin\Desktop\gold\C03632D2\image_draw"
     rectangle_count, non_rectangle_count, non_rectangle_angle_info, non_aligned_rectangle_info, aligned_count, within_5_degrees_count, within_5_to_10_degrees_count, within_10_to_20_degrees_count, within_20_to_30_degrees_count, over_30_degrees_count, within_5_degrees_files, within_5_to_10_degrees_files, within_10_to_20_degrees_files, within_20_to_30_degrees_files, over_30_degrees_files, aligned_rectangle_count = process_geojson_files(folder_path, tif_folder_path, output_folder_path)
     print(f"矩形的数量为: {rectangle_count}")
     print(f"非矩形的数量为: {non_rectangle_count}")
