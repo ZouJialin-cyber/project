@@ -66,6 +66,6 @@ def adjust_geojson_labels(input_folder, output_folder):
             print(f"Processed {subfolder}")
 
 # Example usage
-input_folder = r"C:\Users\zoujialin\Desktop\gold\test\mini_json_label"
-output_folder = r"C:\Users\zoujialin\Desktop\gold\test\raw_json_label"
+input_folder = r"D:\gold\mini_label"
+output_folder = r"D:\gold\10_label"
 adjust_geojson_labels(input_folder, output_folder)

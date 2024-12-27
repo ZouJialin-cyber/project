@@ -71,6 +71,6 @@ def split_image(input_folder, output_folder):
             print(f"Processed {image_name}")
 
 # Example usage
-input_folder = r"C:\Users\zoujialin\Desktop\gold\test\raw_img"
-output_folder = r"C:\Users\zoujialin\Desktop\gold\test\mini_image"
+input_folder = r"D:\gold\10_image"
+output_folder = r"D:\gold\mini_image"
 split_image(input_folder, output_folder)

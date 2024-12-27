@@ -376,12 +376,12 @@ def calculate_deviation_angle(valid_intersections):
 
 if __name__ == '__main__':
     # 指定包含.geojson文件的文件夹路径
-    folder_path = r"C:\Users\zoujialin\Desktop\gold\C03632D2\json"
+    folder_path = r"D:\gold\10_label_img"
     # 指定包含对应的tif图像的文件夹路径
-    tif_folder_path = r"C:\Users\zoujialin\Desktop\gold\C03632D2\image"
+    tif_folder_path = r"D:\gold\10_image"
     # 指定保存新图的目的文件夹路径
-    output_folder_path = r"C:\Users\zoujialin\Desktop\gold\C03632D2\image_draw"
-    txt_folder_path = r"C:\Users\zoujialin\Desktop\gold\C03632D2\image_draw"
+    output_folder_path = r"D:\gold\10_merge_img"
+    txt_folder_path = r"D:\gold\10_txt_img"
     rectangle_count, non_rectangle_count, non_rectangle_angle_info, non_aligned_rectangle_info, aligned_count, within_5_degrees_count, within_5_to_10_degrees_count, within_10_to_20_degrees_count, within_20_to_30_degrees_count, over_30_degrees_count, within_5_degrees_files, within_5_to_10_degrees_files, within_10_to_20_degrees_files, within_20_to_30_degrees_files, over_30_degrees_files, aligned_rectangle_count = process_geojson_files(folder_path, tif_folder_path, output_folder_path)
     print(f"矩形的数量为: {rectangle_count}")
     print(f"非矩形的数量为: {non_rectangle_count}")
