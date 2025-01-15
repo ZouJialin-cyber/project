@@ -31,7 +31,18 @@ def adjust_geojson_labels(input_folder, output_folder):
                         data = json.load(f)
 
                     # Extract the part of the name (top, left, right, or bottom)
-                    part_name = geojson_file.split('_')[1]  # top, left, right, or bottom
+                    part_name = None
+                    if 'top' in geojson_file:
+                        part_name = 'top'
+                    elif 'left' in geojson_file:
+                        part_name = 'left'
+                    elif 'right' in geojson_file:
+                        part_name = 'right'
+                    elif 'bottom' in geojson_file:
+                        part_name = 'bottom'
+                    else:
+                        print(f"Invalid geojson file name: {geojson_file}, skipping...")
+                        continue
                     extra_value = int(geojson_file.split('_')[-1].split('.')[0])
 
                     # Adjust the coordinates in the geojson data
