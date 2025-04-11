@@ -14,3 +14,22 @@ if __name__ == '__main__':
 
     cv.imwrite(r"D:\bgi_project\demo\output\imgTrans1.jpg", imgTrans1)
     cv.imwrite(r"D:\bgi_project\demo\output\imgTrans2.jpg", imgTrans2)
+
+    # 图像缩放
+    imgMini = cv.resize(img, (128, 128))    # 默认插值方法为双线性插值, LINEAR方法
+
+    cv.imwrite(r"D:\bgi_project\demo\output\imgMini.jpg", imgMini)
+
+    # 图像旋转（顺时针旋转90度）
+    imgRot90 = cv.rotate(img, cv.ROTATE_90_CLOCKWISE)
+
+    cv.imwrite(r"D:\bgi_project\demo\output\imgRot90.jpg", imgRot90)
+
+    # 图像翻转
+    imgFlipV = cv.flip(img, 0)    # 垂直翻转
+    imgFlipH = cv.flip(img, 1)    # 水平翻转
+    imgFlipH_V = cv.flip(img, -1)    # 水平和垂直同时翻转
+
+    cv.imwrite(r"D:\bgi_project\demo\output\imgFlipV.jpg", imgFlipV)
+    cv.imwrite(r"D:\bgi_project\demo\output\imgFlipH.jpg", imgFlipH)
+    cv.imwrite(r"D:\bgi_project\demo\output\imgFlipH_V.jpg", imgFlipH_V)
