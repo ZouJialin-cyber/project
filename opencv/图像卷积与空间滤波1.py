@@ -205,7 +205,7 @@ if __name__ == '__main__':
     # 空间滤波之高斯低通滤波，图像边缘较模糊
     gaussFilter(image_path)
 
-    # 空间滤波之均值滤波器
+    # 空间滤波之中值滤波器
     medianFilter(image_path)
 
     # 统计排序滤波器：最大、最小值滤波器，中点滤波器，阿尔法修正滤波器
